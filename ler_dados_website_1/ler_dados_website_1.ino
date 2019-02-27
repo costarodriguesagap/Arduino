@@ -7,8 +7,8 @@
 #include <ESP8266WiFi.h>
 
 #ifndef STASSID
-#define STASSID "BTXPS1_2.4G"
-#define STAPSK  "#Pentagrama24968#"
+#define STASSID "wifi_name"
+#define STAPSK  "wifi_pass"
 #endif
 
 const char* ssid     = STASSID;
