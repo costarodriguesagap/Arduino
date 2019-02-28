@@ -31,7 +31,7 @@ void setup()
 }
 
 void readReponseContent(struct clientData* clientData) {
- 
+ // Para calcular capacity, usar o site "https://arduinojson.org/v6/assistant/"
   const size_t capacity = JSON_ARRAY_SIZE(1) + JSON_OBJECT_SIZE(1) + 2*JSON_OBJECT_SIZE(2) + JSON_OBJECT_SIZE(4) + JSON_OBJECT_SIZE(5) + JSON_OBJECT_SIZE(6) + JSON_OBJECT_SIZE(12) + 260;
   DynamicJsonDocument doc(capacity);
 
