@@ -2,8 +2,8 @@
 #include <ESP8266HTTPClient.h>
 #include <ArduinoJson.h>
 
-const char* ssid = "BTXPS1_2.4G";
-const char* password = "#Pentagrama24968#";
+const char* ssid = "";
+const char* password = "";
 
 uint8_t n_minutos = 0;
 
@@ -85,7 +85,7 @@ void loop()
     Serial.println("Invocar API ...");
     if (WiFi.status() == WL_CONNECTED) 
     {
-      http.begin("http://api.openweathermap.org/data/2.5/weather?q=Lisbon,pt&APPID=c90a783983bb396f8d33177987d4c7ca&units=metric");
+      http.begin("http://api.openweathermap.org/data/2.5/weather?q=Lisbon,pt&APPID=<key_api>&units=metric");
       int httpCode = http.GET();
   
       if (httpCode > 0) 
