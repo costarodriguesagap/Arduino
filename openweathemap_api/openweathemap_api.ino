@@ -89,8 +89,8 @@ bool ScanAndConnect()
          //Serial.print("Connecting: "); //debugging
          //Serial.println(WiFi.SSID(SigStrength[1][j])); //debugging
          int k =0;
-         if (WiFi.SSID(SigStrength[1][j])== "BTXPS1_2.4G" ||
-             WiFi.SSID(SigStrength[1][j])== "BTXPS2_2.4G"){password = "#Pentagrama24968#";}
+         if (WiFi.SSID(SigStrength[1][j])== "<wifi_SSID_1>" ||
+             WiFi.SSID(SigStrength[1][j])== "<wifi_SSID_2>"){password = "<wifi_pass>";}
          WiFi.begin(WiFi.SSID(SigStrength[1][j]), password); //conect to the j'th value in our new array
          while ((WiFi.status() !=  WL_CONNECTED) && k < 15 )
          {
