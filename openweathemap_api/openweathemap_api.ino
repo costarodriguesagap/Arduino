@@ -25,8 +25,8 @@ HTTPClient http; //Object of class HTTPClient
 
 void setup() 
 {
-  Serial.begin(115200);
-  delay(100);
+  //Serial.begin(115200);
+  //delay(100);
   first_inq = true;
   if(ScanAndConnect)
   {
