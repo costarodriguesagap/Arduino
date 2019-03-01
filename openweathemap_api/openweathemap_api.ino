@@ -25,10 +25,10 @@ HTTPClient http; //Object of class HTTPClient
 
 void setup() 
 {
-  //Serial.begin(115200);
-  //delay(100);
+  Serial.begin(115200);
+  delay(100);
   first_inq = true;
-  if(ScanAndConnect)
+  if(ScanAndConnect())
   {
     char wifi_ssid[20];
     char wifi_ip[20];
@@ -53,67 +53,44 @@ void setup()
 
 bool ScanAndConnect()
 {
-   int n = WiFi.scanNetworks();
+  Serial.println("ScanAndConnect");
+   int n =0;
+   //WiFi.mode(WIFI_STA);
+   WiFi.disconnect();
+   
+   n = WiFi.scanNetworks();
+   Serial.println(n);
    if(n==0)
    {
       return false;
    }
    else
    {
-      int i=0;
-      int SigStrength[10][30]; //maximum of 10 access points. 
-      for ( i = 0; i<n; ++i) 
+      for (int thisNet = 0; thisNet < n; thisNet++) 
       {
-         //2 columms column 0 is the signal Strength
-         SigStrength[1][i] = i;
-         SigStrength[0][i] = WiFi.RSSI(i);
-      }
-      for (int i = 1; i < n; ++i)
-      {// insert sort into strongest signal 
-         int j = SigStrength[0][i]; //holding value for signal strength
-         int l = SigStrength[1][i];
-         int k;
-         for (k = i - 1; (k >= 0) && (j > SigStrength[0][k]); k--)
-         {
-          SigStrength[0][k + 1] = SigStrength[0][k];
-          l = SigStrength[1][k+1];
-          SigStrength[1][k+1]=SigStrength[1][k];
-          SigStrength[1][k]=l; //swap index values here. 
-         }
-         SigStrength[0][k + 1] = j;
-         SigStrength[1][k + 1] = l; //swap index values here to re-order. 
-      }
-      int j = 0;
-      while ((j < n)  && (WiFi.status() != WL_CONNECTED) )
-      {
-         //Serial.print("Connecting: "); //debugging
-         //Serial.println(WiFi.SSID(SigStrength[1][j])); //debugging
-         int k =0;
-         if (WiFi.SSID(SigStrength[1][j])== "<wifi_SSID_1>" ||
-             WiFi.SSID(SigStrength[1][j])== "<wifi_SSID_2>"){password = "<wifi_pass>";}
-         WiFi.begin(WiFi.SSID(SigStrength[1][j]), password); //conect to the j'th value in our new array
-         while ((WiFi.status() !=  WL_CONNECTED) && k < 15 )
-         {
-            Serial.print("k");
-            delay(500);
-            k++; //counter for up to 8 seconds - why 8 ? who knows
-         }
-         if (k > 15) 
-            Serial.println(F("NEXT Wifi Accest Point"));
-         j++; //choose the next SSID
-      }
-      if (WiFi.status() ==  WL_CONNECTED) 
-      {
-         Serial.print(F("Connected:"));
-         Serial.println(WiFi.SSID());
-         return true;
-      }
-      else
-      {
-         Serial.println(F("No Connection :( (Sad face)"));
-         return false;
+        if (WiFi.SSID(thisNet) == "BTXPS1_2.4G" || WiFi.SSID(thisNet) == "BTXPS1_2.4G" || WiFi.SSID(thisNet) == "Xiaomi Btxps5")
+           {return connect_wifi(WiFi.SSID(thisNet),"#Pentagrama24968#");}
+        if (WiFi.SSID(thisNet) == "GrupoSantanderInternet"){return connect_wifi(WiFi.SSID(thisNet),"j4>somos+de10E6@.pt");}
       }
    }
+}
+
+bool connect_wifi(String ssid,String pass)
+{
+  Serial.println(ssid);
+  Serial.println(pass);
+  uint8_t n_Secs = 0;
+  WiFi.begin(ssid, pass);
+  while (WiFi.status() != WL_CONNECTED && n_Secs < 10)
+  {
+    delay(1000);
+    n_Secs ++;
+    Serial.print(F("."));
+  }
+  Serial.println();
+  Serial.print("WiFi.status - ");Serial.println(WiFi.status());
+  if(WiFi.status() != WL_CONNECTED){return false;}
+  else{Serial.println("Connected...");return true;}
 }
 void init_screen()
 {
@@ -166,7 +143,7 @@ void readReponseContent() {
     printText("o", ST7735_WHITE,35,140,1);printText("C", ST7735_WHITE,41,145,1);
 
     int humidity = root["main"]["humidity"].as<int>();
-    itoa(humidity, humidityChar,20);
+    String(humidity).toCharArray(humidityChar,20);
     tft.fillRect(10,22,128,30,ST7735_BLACK);
     printText(humidityChar, ST7735_WHITE,40,22,3);
     printText("%", ST7735_WHITE,80,22,2);
@@ -199,9 +176,9 @@ void loop()
   {
     if(first_inq){init_screen();}
     first_inq = false; 
-    Serial.println(F("Invocar API ..."));
     if (WiFi.status() == WL_CONNECTED) 
     {
+      Serial.println(F("Invocar API ..."));
       http.begin("http://api.openweathermap.org/data/2.5/weather?q=Lisbon,pt&APPID=c90a783983bb396f8d33177987d4c7ca&units=metric");
       int httpCode = http.GET();
   
