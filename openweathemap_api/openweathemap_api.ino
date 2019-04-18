@@ -68,9 +68,8 @@ bool ScanAndConnect()
    {
       for (int thisNet = 0; thisNet < n; thisNet++) 
       {
-        if (WiFi.SSID(thisNet) == "BTXPS1_2.4G" || WiFi.SSID(thisNet) == "BTXPS1_2.4G" || WiFi.SSID(thisNet) == "Xiaomi Btxps5")
-           {return connect_wifi(WiFi.SSID(thisNet),"#Pentagrama24968#");}
-        if (WiFi.SSID(thisNet) == "GrupoSantanderInternet"){return connect_wifi(WiFi.SSID(thisNet),"j4>somos+de10E6@.pt");}
+        if (WiFi.SSID(thisNet) == "rede_id_1" || WiFi.SSID(thisNet) == "rede_id_2" || WiFi.SSID(thisNet) == "rede_id_3")
+           {return connect_wifi(WiFi.SSID(thisNet),"pass_1");}
       }
    }
 }
@@ -179,7 +178,7 @@ void loop()
     if (WiFi.status() == WL_CONNECTED) 
     {
       Serial.println(F("Invocar API ..."));
-      http.begin("http://api.openweathermap.org/data/2.5/weather?q=Lisbon,pt&APPID=c90a783983bb396f8d33177987d4c7ca&units=metric");
+      http.begin("http://api.openweathermap.org/data/2.5/weather?q=Lisbon,pt&APPID=key_1&units=metric");
       int httpCode = http.GET();
   
       if (httpCode > 0) 
