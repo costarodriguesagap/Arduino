@@ -118,11 +118,6 @@ void obtem_info()
       if(n_hora > 12){n_hora = n_hora - 12;}
       while(n_hora > 0){digitalWrite(5,LOW);delay(70);digitalWrite(5,HIGH);delay(140);digitalWrite(5,LOW);delay(70);digitalWrite(5,HIGH);delay(700);n_hora--;}
       
-//      digitalWrite(5,LOW);delay(50);digitalWrite(5,HIGH);
-//      delay(50);
-//      digitalWrite(5,LOW);delay(50);digitalWrite(5,HIGH);
-//      delay(50);
-//      digitalWrite(5,LOW);delay(50);digitalWrite(5,HIGH);
     }
   }
   else {ind_tocou = false;}
@@ -131,21 +126,8 @@ void obtem_info()
 boolean verifica_aniversario(char *data)
 {
   boolean existe = false;
-    if(str_ncmp(data,"19-02-1981\0",5) == 0){str_cpy(my_array_D,"Aniversario\0");str_cpy(my_array_H,"Antonio Costa\0");existe = true;}
-    if(str_ncmp(data,"25-03-1976\0",5) == 0){str_cpy(my_array_D,"Aniversario\0");str_cpy(my_array_H,"Jacinta Costa\0");existe = true;}
-    if(str_ncmp(data,"28-03-1982\0",5) == 0){str_cpy(my_array_D,"Aniversario\0");str_cpy(my_array_H,"Pedro Sousa\0");existe = true;}
-    if(str_ncmp(data,"14-04-2008\0",5) == 0){str_cpy(my_array_D,"Aniversario\0");str_cpy(my_array_H,"Carolina\0");existe = true;}
-    if(str_ncmp(data,"26-04-1976\0",5) == 0){str_cpy(my_array_D,"Aniversario\0");str_cpy(my_array_H,"Ana Catarina\0");existe = true;}
-    if(str_ncmp(data,"01-05-2019\0",5) == 0){str_cpy(my_array_D,"Aniversario\0");str_cpy(my_array_H,"Nuno Antonio\0");existe = true;}
-    if(str_ncmp(data,"12-05-2013\0",5) == 0){str_cpy(my_array_D,"Aniversario\0");str_cpy(my_array_H,"Tiago Costa\0");existe = true;}
-    if(str_ncmp(data,"16-05-1981\0",5) == 0){str_cpy(my_array_D,"Aniversario\0");str_cpy(my_array_H,"Marco Dias\0");existe = true;}
-    if(str_ncmp(data,"28-05-1978\0",5) == 0){str_cpy(my_array_D,"Aniversario\0");str_cpy(my_array_H,"Rita Pereira\0");existe = true;}
-    if(str_ncmp(data,"29-05-1972\0",5) == 0){str_cpy(my_array_D,"Aniversario\0");str_cpy(my_array_H,"Paulo Pereira\0");existe = true;}
-    if(str_ncmp(data,"13-06-1980\0",5) == 0){str_cpy(my_array_D,"Aniversario\0");str_cpy(my_array_H,"Marco Rodrigues\0");existe = true;}
-    if(str_ncmp(data,"20-09-1969\0",5) == 0){str_cpy(my_array_D,"Aniversario\0");str_cpy(my_array_H,"Odete Farinha\0");existe = true;}
-    if(str_ncmp(data,"12-10-1943\0",5) == 0){str_cpy(my_array_D,"Aniversario\0");str_cpy(my_array_H,"Alberto Pereira\0");existe = true;}
-    if(str_ncmp(data,"05-11-1942\0",5) == 0){str_cpy(my_array_D,"Aniversario\0");str_cpy(my_array_H,"Maria Manuela\0");existe = true;}
-    if(str_ncmp(data,"25-12-1946\0",5) == 0){str_cpy(my_array_D,"Aniversario\0");str_cpy(my_array_H,"Manuel Costa\0");existe = true;}
+    if(str_ncmp(data,"01-01-1981\0",5) == 0){str_cpy(my_array_D,"Aniversario\0");str_cpy(my_array_H,"Andriolina\0");existe = true;}
+
   return existe;
 }
 
