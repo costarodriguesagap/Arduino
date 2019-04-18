@@ -39,25 +39,4 @@ void setup()
   
 }
  
-void loop()
-{
-//  dataehora = rtc.getDateTime();     //Atribuindo valores instantâneos de 
-//                                     //data e hora à instância dataehora
-// 
-// 
-//  Serial.print(dataehora.year);     //Imprimindo o Ano   
-//  Serial.print("-");
-//  Serial.print(dataehora.month);    //Imprimindo o Mês
-//  Serial.print("-");
-//  Serial.print(dataehora.day);      //Imprimindo o Dia
-//  Serial.print(" ");
-//  Serial.print(dataehora.hour);     //Imprimindo a Hora
-//  Serial.print(":");
-//  Serial.print(dataehora.minute);   //Imprimindo o Minuto
-//  Serial.print(":");
-//  Serial.print(dataehora.second);   //Imprimindo o Segundo
-//  Serial.println("");
- 
-  delay(1000);     //Tempo p atualização do valor enviado pela porta
-                   //serial
-}
+void loop(){}
