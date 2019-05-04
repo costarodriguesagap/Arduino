@@ -2,13 +2,13 @@
 
 #include <ESP8266WiFi.h>
  
-String apiKey = "HFQG2L8NXXPHJHBQ";       // Enter your Write API key from ThingSpeak
+String apiKey = "xxxxxx";
 
-const char* ssid = "BTXPS1_2.4G";           // Give your wifi network name
-const char* password = "#Pentagrama24968#";   // Give your wifi network password
+const char* ssid = "xxxxx";
+const char* password = "xxxxxx";
 const char* server = "api.thingspeak.com";
 
-#define DHTPIN 4          //pin D0 where the dht11 is connected
+#define DHTPIN 4          //pino D2 do esp8266
 DHT dht(DHTPIN, DHT22);
 
 WiFiClient client;
@@ -50,16 +50,14 @@ void loop()
                       return;
                  }
 
-                         if (client.connect(server,80))   //   "184.106.153.149" or api.thingspeak.com
+                         if (client.connect(server,80))
                       {  
-                            
                              String postStr = apiKey;
                              postStr +="&field1=";
                              postStr += String(t);
                              postStr +="&field2=";
                              postStr += String(h);
                              postStr += "\r\n\r\n";
- 
                              client.print("POST /update HTTP/1.1\n");
                              client.print("Host: api.thingspeak.com\n");
                              client.print("Connection: close\n");
