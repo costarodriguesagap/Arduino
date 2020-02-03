@@ -1,0 +1,9 @@
+https://script.google.com/macros/s/AKfycbzANpFRGDNJluACe6bTuMWOFc3uAEET9NcDK25aWSuhhh5iL8aj/exec
+
+Client ID     - 2058107764-nckkvemg5i0g2joi93k6g82u7vo9hv5j.apps.googleusercontent.com
+Client Secret - UwACWkyj3wH9iC-zEaunW0hi
+
+https://www.googleapis.com/auth/calendar
+
+
+==> https://script.google.com/macros/s/AKfycbzANpFRGDNJluACe6bTuMWOFc3uAEET9NcDK25aWSuhhh5iL8aj/exec?delayDias=1

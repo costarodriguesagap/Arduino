@@ -1,0 +1,2 @@
+ampy --port [Port Com ESP] put [file_name]    => load file (ampy --port COM3 put main.py)
+ampy --port [Port Com ESP] run [file_name.py] => run script. If script_name = main, is de default script run when esp32 is connect to power

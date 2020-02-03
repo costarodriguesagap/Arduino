@@ -1,0 +1,16 @@
+Metadata-Version: 1.0
+Name: micropython-datetime
+Version: 0.0.2
+Summary: Dummy datetime module for MicroPython
+Home-page: https://github.com/micropython/micropython-lib
+Author: MicroPython Developers
+Author-email: micro-python@googlegroups.com
+License: MIT
+Description: This is a dummy implementation of a module for MicroPython standard library.
+        It contains zero or very little functionality, and primarily intended to
+        avoid import errors (using idea that even if an application imports a
+        module, it may be not using it onevery code path, so may work at least
+        partially). It is expected that more complete implementation of the module
+        will be provided later. Please help with the development if you are
+        interested in this module.
+Platform: UNKNOWN
